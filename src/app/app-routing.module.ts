@@ -8,8 +8,9 @@ import { UseranswerComponent } from './useranswer/useranswer.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/new-poll', pathMatch: 'full'},
+  {path: '', redirectTo: '/useranswer', pathMatch: 'full'},
   
+
 ];
 
 @NgModule({
