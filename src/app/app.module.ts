@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { NewPollComponent } from './new-poll/new-poll.component';
+import { ResponsesComponent } from './responses/responses.component';
+import { UseranswerComponent } from './useranswer/useranswer.component';
+import { SubmissionComponent } from './submission/submission.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NewPollComponent
+    NewPollComponent,
+    ResponsesComponent,
+    UseranswerComponent,
+    SubmissionComponent
   ],
   imports: [
     BrowserModule,
