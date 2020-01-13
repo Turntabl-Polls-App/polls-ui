@@ -9,7 +9,16 @@ import { NewPollComponent } from './new-poll/new-poll.component';
 import { ResponsesComponent } from './responses/responses.component';
 import { UseranswerComponent } from './useranswer/useranswer.component';
 import { SubmissionComponent } from './submission/submission.component';
+import { FusionChartsModule } from 'angular-fusioncharts';
+import * as FusionCharts from 'fusioncharts';
+import * as charts from 'fusioncharts/fusioncharts.charts';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
+FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
+
+
+
+// Pass the fusioncharts library and chart module
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +31,8 @@ import { SubmissionComponent } from './submission/submission.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
