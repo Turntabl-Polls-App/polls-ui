@@ -30,7 +30,7 @@ export class ResponsesComponent {
         caption: "Whether Turntablers like to rest during the Weekend",
         subCaption: "Options= In Percentages",
         xAxisName: "Choices",
-        yAxisName: "Percentages (%)",
+        yAxisName: "Response Level(%)",
         numberSuffix: "%",
         theme: "fusion"
       },
