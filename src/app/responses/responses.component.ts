@@ -27,7 +27,7 @@ export class ResponsesComponent {
     // STEP 3 - Chart Configuration
     const dataSource = {
       chart: {
-        caption: "Whether Turntablers like to rest during the Weekend",
+        caption: "Whether Turntablers like to rest on Weekends",
         subCaption: "Options= In Percentages",
         xAxisName: "Choices",
         yAxisName: "Response Level(%)",
