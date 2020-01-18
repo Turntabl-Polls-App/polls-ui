@@ -3,31 +3,33 @@
 
     <div class="card mx-auto my-3" style="width: 50%">
         <div class="card-body">
-          <form action="" [formGroup]="creatorsForm" (ngSubmit)="showoptions()">
 
-            <div *ngIf="showOptions; else elseBlock">
 
-          <h5 class="card-title">
+          <form action="" [formGroup]="creatorsForm" (ngSubmit)="onSubmit()">
+
+            <!-- <div *ngIf="showOptions; else elseBlock"> -->
+
+          <!-- <h5 class="card-title"> -->
                 <div class="form-group">
                   <label for="questionField">Question</label>
                   <input formControlName="questions" type="text" class="form-control" id="questionField" placeholder="Question here...">
                 </div>
               <!-- <button (click)="showoptions()" >Continue</button> -->
               
-              <button>Continue</button>
+              <!-- <button>Continue</button> -->
               
 
-          </h5>
+          <!-- </h5> -->
         <!-- </form> -->
-        </div>
-<ng-template #elseBlock>
+        <!-- </div>
+<ng-template #elseBlock> -->
 
           <div options class="w-50">
             <div class="input-group mb-3" *ngFor="let item of options">
                 <!-- <div class="input-group-prepend"> -->
-                  <span class="input-group-text" id="inputGroup-sizing-default">Option {{item.id}}</span>
+                  <span class="input-group-text" id="inputGroup-sizing-default">Option </span>
                 <!-- </div> -->
-                <input formControlName="{{item.id}}" type="text" class="form-control w-25" aria-label="Default">
+                <input formControlName="{{item.id}}"  (keyup.enter)="newOptionbtn()" type="text" class="form-control w-25" aria-label="Default">
             </div>
             
             <!-- new option will be appended here -->
@@ -49,10 +51,11 @@
           <div class="card-body">
             <button type="submit" class="btn btn-raised btn-info btn-block">SEND MAIL</button>
           </div>
-        </ng-template>
+        <!-- </ng-template> -->
         </form>
         </div>
       </div>
 
     
 </div>
+

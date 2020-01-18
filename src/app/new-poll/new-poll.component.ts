@@ -4,38 +4,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Option } from  './option';
 import { Poll } from './poll';
-import {SendmailService} from '../new-poll/sendmail.service';
+import { User } from './user';
+import {SendmailService} from './sendmail.service';
 import { FormControl, FormGroup } from '@angular/forms';
-
 
 @Component({
   selector: 'app-new-poll',
   templateUrl: './new-poll.component.html',
   styleUrls: ['./new-poll.component.css']
 })
-
-@Directive({
-  selector: '[options]'
-})
 export class NewPollComponent implements OnInit {
 
   creatorsForm = new FormGroup({
     email: new FormControl(''),
     questions: new FormControl(''),
-    // options: new FormControl('')
+    options: new FormControl('')
   });
-
-  creatorsForm1 = new FormGroup({
-    email: new FormControl(''),
-    questions: new FormControl(''),
-    // options: new FormControl('')
-  });
-
-  showOptions:boolean = true
 
   user = {
-    email: 'isaac.agyen@turntabl.io'
+    email: "isaac.agyen@turntabl.io"
   }
+  userObservable: Observable<User>
+
 
   public poll = {
     poll_id: 0,
@@ -66,9 +56,7 @@ export class NewPollComponent implements OnInit {
      let poll_id = this.route.snapshot.paramMap.get('poll_id');
      const length = this.options.length
     this.creatorsForm.addControl(length.toString(), new FormControl(''))
-
-    
-    
+  
     this.getPolls()
     .subscribe(poll => {
       // this.poll = poll;
@@ -89,7 +77,6 @@ export class NewPollComponent implements OnInit {
     // });
 
   
-
     // this.deletePoll(1)
     // .subscribe(poll => {
     //   this.poll = poll;
@@ -145,21 +132,21 @@ export class NewPollComponent implements OnInit {
 
 onSubmit() {
     
-  // this.user.email = this.creatorsForm.value.email;
-  // console.log(this.user);
+  this.user.email = this.creatorsForm.value.email;
+  console.log(this.user);
 
-  // this.sendmail.sendmail(this.user).subscribe()
+  this.sendmail.sendmail(this.user).subscribe()
 
   console.log(this.creatorsForm.value);
   
 }
 
-showoptions(){
- let userQuestion={
-  poll_id: 0,
-  creator_id: 1,
-  questions: this.creatorsForm.value.questions
-  }
+// showoptions(){
+//  let userQuestion={
+//   poll_id: 0,
+//   creator_id: 1,
+//   questions: this.creatorsForm.value.questions
+//   }
   //  this.addNewPoll(userQuestion)
   //   .subscribe(poll => {
   //     this.poll = poll;
@@ -167,14 +154,14 @@ showoptions(){
     
   //   });
 
-    this.getPolls()
-    .subscribe(poll => {
-      this.AllPolls = poll;
-      console.log('POLL', poll);
-      this.lastPollId = this.AllPolls[this.AllPolls.length -1].poll_id
-    });
+  //   this.getPolls()
+  //   .subscribe(poll => {
+  //     this.AllPolls = poll;
+  //     console.log('POLL', poll);
+  //     this.lastPollId = this.AllPolls[this.AllPolls.length -1].poll_id
+  //   });
+  
+  // }
 
-  this.showOptions = false
-} 
 
 }

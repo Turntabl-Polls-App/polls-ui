@@ -1,14 +1,14 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const secrets = require('./credentials.json');
+// const secrets = require('./credentials.json');
 
 // Change this to one of your email addresses in the organisation
-const YOUR_EMAIL_ADDRESS = 'isaac.agyen@turntabl.io';
-
+const YOUR_EMAIL_ADDRESS = process.env.USER_EMAIL;
 
 async function start(toEmail) {
-  // Change this to the receiver to the mail
+// Change this to the receiver to the mail
 const SEND_TO = toEmail;
+
 
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -17,8 +17,8 @@ const SEND_TO = toEmail;
     auth: {
       type: 'OAuth2',
       user: YOUR_EMAIL_ADDRESS,
-      serviceClient: secrets.client_id,
-      privateKey: secrets.private_key,
+      serviceClient: process.env.CLIENT_ID,
+      privateKey: process.env.PRIVATE_KEY,
     },
   });
   try {
@@ -26,7 +26,7 @@ const SEND_TO = toEmail;
     await transporter.sendMail({
       from: YOUR_EMAIL_ADDRESS,
       to: SEND_TO,
-      subject: 'poll',
+      subject: 'Turntabl poll',
       html: `<div class="my-5">
 		<div class="card mx-auto" style="width: 30rem;">
 			<div class="card-body">
@@ -76,3 +76,4 @@ const SEND_TO = toEmail;
 }
 
 module.exports =  start;
+
