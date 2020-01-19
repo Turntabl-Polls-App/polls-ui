@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.get('/', function(req, res) {
+app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
 
