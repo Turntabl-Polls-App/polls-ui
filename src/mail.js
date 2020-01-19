@@ -1,6 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-//const secrets = require('./credentials.json');
+const secrets = require('./credentials.json');
 
 // Change this to one of your email addresses in the organisation
 const YOUR_EMAIL_ADDRESS = process.env.USER_EMAIL;

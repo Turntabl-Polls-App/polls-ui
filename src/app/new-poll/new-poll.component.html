@@ -49,7 +49,7 @@
             E-mail(s): <input type="email" formControlName="email" name="emailaddress" multiple>
         </div>
           <div class="card-body">
-            <button type="submit" class="btn btn-raised btn-info btn-block">SEND MAIL</button>
+           <a [routerLink]="['/sendmail']" routerLinkActive="router-link-active" > <button type="submit" class="btn btn-raised btn-info btn-block">SEND MAIL</button></a>
           </div>
         <!-- </ng-template> -->
         </form>
