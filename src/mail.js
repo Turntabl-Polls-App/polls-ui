@@ -1,33 +1,31 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const secrets = require('./credentials.json');
 
 // Change this to one of your email addresses in the organisation
 const YOUR_EMAIL_ADDRESS = process.env.USER_EMAIL;
 
-
 async function start(toEmail) {
-  // Change this to the receiver to the mail
-const SEND_TO = toEmail;
+	// Change this to the receiver to the mail
+	const SEND_TO = toEmail;
 
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      type: 'OAuth2',
-      user: YOUR_EMAIL_ADDRESS,
-      serviceClient: process.env.CLIENT_ID,
-      privateKey: process.env.PRIVATE_KEY,
-    },
-  });
-  try {
-    await transporter.verify();
-    await transporter.sendMail({
-      from: YOUR_EMAIL_ADDRESS,
-      to: SEND_TO,
-      subject: 'Turntabl Poll',
-      html: `<div class="my-5">
+	const transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: 465,
+		secure: true,
+		auth: {
+			type: 'OAuth2',
+			user: YOUR_EMAIL_ADDRESS,
+			serviceClient: process.env.CLIENT_ID,
+			privateKey: process.env.PRIVATE_KEY
+		}
+	});
+	try {
+		await transporter.verify();
+		await transporter.sendMail({
+			from: YOUR_EMAIL_ADDRESS,
+			to: SEND_TO,
+			subject: 'Turntabl Poll',
+			html: `<div class="my-5">
 		<div class="card mx-auto" style="width: 30rem;">
 			<div class="card-body">
 			  <h5 class="card-title"><p class="display-3 text-center text-muted border-bottom py-3">Poll survey</p></h5>
@@ -68,11 +66,11 @@ const SEND_TO = toEmail;
 			  <a href="#" class="btn btn-raised btn-success btn-block">Submit</a>
 			</div>
 		  </div>
-	</div>`,
-    });
-  } catch (err) {
-    console.error(err);
-  }
+	</div>`
+		});
+	} catch (err) {
+		console.error(err);
+	}
 }
 
-module.exports =  start;
+module.exports = start;
