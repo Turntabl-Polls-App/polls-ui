@@ -13,13 +13,18 @@ app.use(express.static(__dirname + '/dist/poll-ui'));
 
 app.use(bodyParser.json());
 
-app.use(cors());
+// app.use(cors());
+
+const corsOptions = {
+	origin: 'https://poll-ui.herokuapp.com/',
+	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
 
-app.post('/sendmail', cors(), function(req, res) {
+app.post('/sendmail', cors(corsOptions), function(req, res) {
 	console.log('sending mail...');
 	const user = req.body;
 	mail(user.email);
