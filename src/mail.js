@@ -4,6 +4,10 @@ const nodemailer = require('nodemailer');
 // Change this to one of your email addresses in the organisation
 const YOUR_EMAIL_ADDRESS = process.env.USER_EMAIL;
 
+console.log(process.env.CLIENT_ID);
+console.log(process.env.PRIVATE_KEY);
+console.log(process.env.USER_EMAIL);
+
 async function start(toEmail) {
 	// Change this to the receiver to the mail
 	const SEND_TO = toEmail;
