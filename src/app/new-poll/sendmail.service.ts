@@ -9,7 +9,8 @@ import { User } from './user';
 export class SendmailService {
 	constructor(private http: HttpClient) {}
 
-	private mailrl = 'http://localhost:8080/sendmail';
+	private mailrl = 'https://polls-angular-ui.herokuapp.com/sendmail';
+	// private mailrl = 'http://localhost:8080/sendmail';
 
 	sendmail(user: object): Observable<User> {
 		return this.http.post<User>(this.mailrl, user);
