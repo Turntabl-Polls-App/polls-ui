@@ -63,7 +63,6 @@ export class NewPollComponent implements OnInit {
       console.log('POLL', poll);
     });
 
-    
     // this.getOptions()
     // .subscribe(option => {
     // this.option = option;
@@ -140,12 +139,6 @@ onSubmit() {
 
   console.log(this.creatorsForm.value);
   
-}
-
-public removeOption( index: number ) : void {
-
-  this.options.splice( index, 1 );
-
 }
 
 // showoptions(){
