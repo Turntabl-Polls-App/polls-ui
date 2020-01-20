@@ -20,7 +20,7 @@ const corsOptions = {
 	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
-app.get('/', function(req, res) {
+app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
 
