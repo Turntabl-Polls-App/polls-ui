@@ -141,6 +141,12 @@ onSubmit() {
   
 }
 
+public removeOption( index: number ) : void {
+
+  this.options.splice( index, 1 );
+
+}
+
 // showoptions(){
 //  let userQuestion={
 //   poll_id: 0,
