@@ -5,41 +5,29 @@
         <div class="card-body">
 
 
-          <form action="" [formGroup]="creatorsForm" (ngSubmit)="onSubmit()">
-
-            <!-- <div *ngIf="showOptions; else elseBlock"> -->
-
-          <!-- <h5 class="card-title"> -->
+          <form action="" [formGroup]="questionForm">
                 <div class="form-group">
                   <label for="questionField">Question</label>
-                  <input formControlName="questions" type="text" class="form-control" id="questionField" placeholder="Question here...">
+                  <input formControlName="question" type="text" class="form-control" id="questionField" placeholder="Question here...">
                 </div>
-              <!-- <button (click)="showoptions()" >Continue</button> -->
-              
-              <!-- <button>Continue</button> -->
-              
+          </form>
 
-          <!-- </h5> -->
-        <!-- </form> -->
-        <!-- </div>
-<ng-template #elseBlock> -->
+          <form action="" [formGroup]="optionsForm">
+            <div options class="w-50">
+              <div class="input-group mb-3" *ngFor="let item of options; let index = index; ">
+                  <!-- <div class="input-group-prepend"> -->
+                    <span class="input-group-text" id="inputGroup-sizing-default">Option  </span>
+                  <!-- </div> -->
+                  <input (keyup.enter)="newOptionbtn()" type="text" class="form-control w-25" aria-label="Default">
+                  <button (click)="removeOption(index)" type="button" title="Remove Option" class=" btn btn-danger mx-3 remove">
+                    &times;
+                </button>
+                </div>
+              <!-- new option will be appended here -->
 
-          <div options class="w-50">
-            <div class="input-group mb-3" *ngFor="let item of options; let index = index; ">
-                <!-- <div class="input-group-prepend"> -->
-                  <span class="input-group-text" id="inputGroup-sizing-default">Option </span>
-                <!-- </div> -->
-                <input formControlName="{{item.id}}"  (keyup.enter)="newOptionbtn()" type="text" class="form-control w-25" aria-label="Default">
-            
-                <button (click)="removeOption(index)" type="button" title="Remove Option" class=" btn btn-danger mx-3 remove">
-                  &times;
-              </button>
-            
-              </div>
-            
-            <!-- new option will be appended here -->
+            </div>
+          </form>
 
-          </div>
 
           <div class="text-right ">
               <span class="text-muted small">new option</span>
@@ -50,14 +38,17 @@
             </div>
           </div>
         
-          <div>
-            E-mail(s): <input type="email" formControlName="email" name="emailaddress" multiple>
-        </div>
-          <div class="card-body">
-            <button type="submit" class="btn btn-raised btn-info btn-block">SEND MAIL</button>
+          <form action="" [formGroup]="emailForm">
+            <div>
+              E-mail(s): <input type="email" formControlName="email" name="emailaddress" multiple>
           </div>
         <!-- </ng-template> -->
         </form>
+
+        <div class="card-body">
+          <button (click)="onSubmit()" type="submit" class="btn btn-raised btn-info btn-block">SEND MAIL</button>
+        </div>
+
         </div>
       </div>
 

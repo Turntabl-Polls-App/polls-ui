@@ -3,11 +3,7 @@ const nodemailer = require('nodemailer');
 //const secret = require('./credentials');
 
 // Change this to one of your email addresses in the organisation
-const YOUR_EMAIL_ADDRESS = 'isaac.agyen@turntabl.io';
-
-console.log();
-console.log();
-console.log();
+const YOUR_EMAIL_ADDRESS = 'process.env.USER_EMAIL';
 
 async function start(toEmail) {
 	// Change this to the receiver to the mail

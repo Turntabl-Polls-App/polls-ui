@@ -7,6 +7,7 @@ import { Poll } from './poll';
 import { User } from './user';
 import {SendmailService} from './sendmail.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-new-poll',
@@ -15,35 +16,51 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class NewPollComponent implements OnInit {
 
-  creatorsForm = new FormGroup({
-    email: new FormControl(''),
-    questions: new FormControl(''),
-    options: new FormControl('')
+  questionForm = new FormGroup({
+    question: new FormControl('')
+  });
+
+  optionsForm = new FormGroup({});
+
+  emailForm = new FormGroup({
+    email: new FormControl('')
   });
 
 
+  pollid: string;
 
-  user = {
+  poll = {
+    question : {
+      poll_id: '',
+      question: 'Question here'
+    },
+
+    options: [],
+    
     email: "isaac.agyen@turntabl.io"
   }
+
   userObservable: Observable<User>
 
 
-  public poll = {
-    poll_id: 0,
-    creator_id: 2,
-    questions: 'Do you prefer pizza?'
-  };
+  // public poll = {
+  //   poll_id: this.pollid,
+  //   creator_id: 2,
+  //   questions: 'Do you prefer pizza?'
+  // };
    
-  private option = {
-    options_id: 109,
-    poll_id: 201,
-    content: 'not sure'
-  }
+  // private option = {
+  //   options_id: UUID.UUID(),
+  //   poll_id: this.pollid,
+  //   content: 'not sure'
+  // }
 
-  public options = [{id: 1,  title:""}];
+
+  options = [{option_id: '', poll_id: '', content: ''}]
+
 
   public AllPolls : Array<Poll>= []
+
 
   private _url: string = "https://create-polls.herokuapp.com/api/v1/polls/";
   private  _option_url: string = "https://options-web.herokuapp.com/api/v1/options/";
@@ -55,9 +72,11 @@ export class NewPollComponent implements OnInit {
 
 
   ngOnInit() {
+
      let poll_id = this.route.snapshot.paramMap.get('poll_id');
      const length = this.options.length
-    this.creatorsForm.addControl(length.toString(), new FormControl(''))
+     
+    this.optionsForm.addControl(length.toString(), new FormControl(''))
   
     this.getPolls()
     .subscribe(poll => {
@@ -65,13 +84,14 @@ export class NewPollComponent implements OnInit {
       console.log('POLL', poll);
     });
 
+    
+
     // this.getOptions()
     // .subscribe(option => {
     // this.option = option;
     // console.log('OPTION', option);
     // });
-
-
+    
     // this.addOptions()
     // .subscribe(options => {
     //   this.options = options;
@@ -113,7 +133,7 @@ export class NewPollComponent implements OnInit {
   }
 
   addOptions(): Observable<Option>{
-    return this.http.post<Option>(this._option_url, this.option);
+    return this.http.post<Option>(this._option_url, this.poll.options);
   }
 
   addNewPoll(poll:Poll): Observable<Poll>{
@@ -127,26 +147,36 @@ export class NewPollComponent implements OnInit {
 
   newOptionbtn(){
     const length = this.options.length + 1
-    this.creatorsForm.addControl(length.toString(), new FormControl(''))
-    this.options.push({id: length, title:""});//push empty object of type options
+    this.optionsForm.addControl(length.toString(), new FormControl(''))
+    this.options.push({option_id: '', poll_id: '', content:''});//push empty object of type options
 }
 
+generateUUID(){
+  this.pollid=UUID.UUID();
+  console.log(this.pollid);
+}
 
 onSubmit() {
-    
-  this.user.email = this.creatorsForm.value.email;
-  console.log(this.user);
+  this.poll.question.question = this.questionForm.value.question;
+  this.poll.question.poll_id = UUID.UUID();
 
-  this.sendmail.sendmail(this.user).subscribe()
+  console.log('QUESTION', this.poll.question);
 
-  console.log(this.creatorsForm.value);
-  
+  this.poll.options = this.optionsForm.value;
+  console.log('OPTIONS', this.poll.options);
+
+  this.poll.email = this.emailForm.value.email;
+  console.log('EMAIL', this.poll.email);
+
+
+  // this.sendmail.sendmail(this.user).subscribe()
+  // console.log(this.emailForm.value);
 }
 
 public removeOption( id: number ) : void {
- 
-  this.options.splice( id, 1);
+ this.options.splice( id, 1);
 }
+
 // showoptions(){
 //  let userQuestion={
 //   poll_id: 0,
