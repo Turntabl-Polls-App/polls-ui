@@ -30,7 +30,11 @@
                   <span class="input-group-text" id="inputGroup-sizing-default">Option </span>
                 <!-- </div> -->
                 <input formControlName="{{item.id}}"  (keyup.enter)="newOptionbtn()" type="text" class="form-control w-25" aria-label="Default">
-            </div>
+            
+                <a (click)="removeOption( index )" title="Remove Option" class="remove">
+                  &times;
+              </a>
+              </div>
             
             <!-- new option will be appended here -->
 
