@@ -21,6 +21,8 @@ export class NewPollComponent implements OnInit {
     options: new FormControl('')
   });
 
+
+
   user = {
     email: "isaac.agyen@turntabl.io"
   }
@@ -39,7 +41,7 @@ export class NewPollComponent implements OnInit {
     content: 'not sure'
   }
 
-  public options = [{id: 1,  title:"yes"}];
+  public options = [{id: 1,  title:""}];
 
   public AllPolls : Array<Poll>= []
 
@@ -126,7 +128,7 @@ export class NewPollComponent implements OnInit {
   newOptionbtn(){
     const length = this.options.length + 1
     this.creatorsForm.addControl(length.toString(), new FormControl(''))
-    this.options.push({id: length, title:"no"});//push empty object of type options
+    this.options.push({id: length, title:""});//push empty object of type options
 }
 
 
@@ -141,12 +143,10 @@ onSubmit() {
   
 }
 
-public removeOption( index: number ) : void {
-
-  this.options.splice( index, 1 );
-
+public removeOption( id: number ) : void {
+ 
+  this.options.splice( id, 1);
 }
-
 // showoptions(){
 //  let userQuestion={
 //   poll_id: 0,
