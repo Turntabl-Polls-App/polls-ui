@@ -22,6 +22,7 @@
     "@angular/router": "~8.2.14",
     "@ngtools/webpack": "^1.2.4",
     "angular-fusioncharts": "^3.0.4",
+    "angular2-uuid": "^1.1.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",

@@ -27,7 +27,6 @@ app.get('/', function(req, res) {
 });
 /*
 app.post('/sendmail', cors(corsOptions), function(req, res, next) {
-	console.log('sending mail...');
 	const user = req.body;
 	mail(user.email);
 
