@@ -37,7 +37,6 @@ app.post('/sendmail', cors(corsOptions), function(req, res, next) {
 app.get('/sendmail', function(req, res) {
 	console.log('sending mail...');
 	mail(req.query.email);
-	res.send('Email Sent...');
 });
 
 // Start the app by listening on the default Heroku port

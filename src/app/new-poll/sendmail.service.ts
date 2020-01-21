@@ -11,7 +11,6 @@ export class SendmailService {
 
 	private mailrl = 'https://cors-anywhere.herokuapp.com/https://polls-angular-ui.herokuapp.com/sendmail';
 	// private mailrl = 'http://localhost:8080/sendmail';
-
 	sendmail(user: string): Observable<User> {
 		return this.http.get<User>(this.mailrl + '?email=' + user);
 	}
