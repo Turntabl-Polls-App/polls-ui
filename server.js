@@ -18,18 +18,19 @@ app.use(cors());
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
-/*
-app.post('/sendmail', cors(corsOptions), function(req, res, next) {
-	const user = req.body;
-	mail(user.email);
 
-	next();
-});
-*/
+// app.post('/sendmail', function(req, res, next) {
+// 	const user = req.body;
+// 	mail(user.email);
+
+// 	next();
+// });
+
 
 app.get('/sendmail', function(req, res) {
 	console.log('sending mail...');
-	mail(req.query.email);
+	const user = req.body;
+	mail(user.email);
 });
 
 // Start the app by listening on the default Heroku port
