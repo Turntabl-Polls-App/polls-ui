@@ -18,10 +18,11 @@
                   <!-- <div class="input-group-prepend"> -->
                     <span class="input-group-text" id="inputGroup-sizing-default">Option  </span>
                   <!-- </div> -->
-                  <input (keyup.enter)="newOptionbtn()" type="text" class="form-control w-25" aria-label="Default">
-                  <button (click)="removeOption(index)" type="button" title="Remove Option" class=" btn btn-danger mx-3 remove">
+                  <input formControlName="{{item.option_id}}" type="text" (keyup.enter)="newOptionbtn()"  class="form-control w-25" aria-label="Default">
+                  <button (click)="removeOption(index, item.option_id)" type="button" title="Remove Option" class=" btn btn-danger mx-3 remove">
                     &times;
                 </button>
+            
                 </div>
               <!-- new option will be appended here -->
 

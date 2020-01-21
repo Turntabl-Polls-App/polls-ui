@@ -20,7 +20,8 @@ export class NewPollComponent implements OnInit {
     question: new FormControl('')
   });
 
-  optionsForm = new FormGroup({});
+  optionsForm = new FormGroup({
+  });
 
   emailForm = new FormGroup({
     email: new FormControl('')
@@ -29,15 +30,21 @@ export class NewPollComponent implements OnInit {
 
   pollid: string;
 
+  options = [{option_id: '1', poll_id: '', content: ''}]
+  finalOptions = [];
+
+
   poll = {
+
     question : {
       poll_id: '',
       question: 'Question here'
     },
 
     options: [],
-    
+
     email: "isaac.agyen@turntabl.io"
+
   }
 
   userObservable: Observable<User>
@@ -56,7 +63,7 @@ export class NewPollComponent implements OnInit {
   // }
 
 
-  options = [{option_id: '', poll_id: '', content: ''}]
+  
 
 
   public AllPolls : Array<Poll>= []
@@ -64,7 +71,7 @@ export class NewPollComponent implements OnInit {
 
   private _url: string = "https://create-polls.herokuapp.com/api/v1/polls/";
   private  _option_url: string = "https://options-web.herokuapp.com/api/v1/options/";
-  private lastPollId;
+  
  
   
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private sendmail: SendmailService, private renderer: Renderer2, private el: ElementRef) { }
@@ -146,9 +153,9 @@ export class NewPollComponent implements OnInit {
 
 
   newOptionbtn(){
-    const length = this.options.length + 1
+    const length = this.options.length + 1;
     this.optionsForm.addControl(length.toString(), new FormControl(''))
-    this.options.push({option_id: '', poll_id: '', content:''});//push empty object of type options
+    this.options.push({option_id: length.toString(), poll_id: '', content:''});//push empty object of type options
 }
 
 generateUUID(){
@@ -163,7 +170,22 @@ onSubmit() {
   console.log('QUESTION', this.poll.question);
 
   this.poll.options = this.optionsForm.value;
+  console.log('options form', this.optionsForm.value)
+  
   console.log('OPTIONS', this.poll.options);
+  console.log(this.poll.options);
+  // this.poll.options.map(con => {
+  //   this.finalOptions.push({
+  //     option_id: UUID.UUID(),
+  //     poll_id: this.pollid,
+  //     content: con
+  //   })
+
+  // });
+
+  console.log('final options',this.finalOptions);
+
+
 
   this.poll.email = this.emailForm.value.email;
   console.log('EMAIL', this.poll.email);
@@ -173,8 +195,15 @@ onSubmit() {
   // console.log(this.emailForm.value);
 }
 
-public removeOption( id: number ) : void {
- this.options.splice( id, 1);
+public removeOption( id: number,  option_id: string ) : void {
+  this.options.splice(id, 1);
+  this.optionsForm.removeControl(option_id);
+
+  // const index = this.options.indexOf()
+  // if (index > -1) {
+  //   this.options.splice(index, 1);
+  // }
+
 }
 
 // showoptions(){
