@@ -35,6 +35,7 @@ app.post('/sendmail', cors(corsOptions), function(req, res, next) {
 
 app.get('/sendmail', function(req, res) {
 	console.log('sending mail...');
+	res.header('Access-Control-Allow-Headers', 'x-requested-with, x-requested-by');
 	mail(req.query.email);
 });
 
