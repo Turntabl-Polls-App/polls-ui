@@ -22,16 +22,22 @@ const corsOptions = {
 	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
-
+/*
 app.post('/sendmail', cors(corsOptions), function(req, res, next) {
 	console.log('sending mail...');
 	const user = req.body;
 	mail(user.email);
 
 	next();
+});
+*/
+
+app.get('/sendmail', function(req, res) {
+	console.log('sending mail...');
+	mail(req.query.email);
 });
 
 // Start the app by listening on the default Heroku port
