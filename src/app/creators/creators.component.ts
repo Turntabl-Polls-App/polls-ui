@@ -9,7 +9,7 @@ import { Poll } from '../new-poll/poll';
 @Component({
   selector: 'app-creators',
   templateUrl: './creators.component.html',
-  styleUrls: ['./creators.component.css']
+  styleUrls: ['./creators.component.scss']
 })
 export class CreatorsComponent implements OnInit {
 

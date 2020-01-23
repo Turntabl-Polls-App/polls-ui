@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-submission',
   templateUrl: './submission.component.html',
-  styleUrls: ['./submission.component.css']
+  styleUrls: ['./submission.component.scss']
 })
 export class SubmissionComponent implements OnInit {
 

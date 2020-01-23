@@ -4,7 +4,6 @@
     <div class="card mx-auto my-3" style="width: 50%">
         <div class="card-body">
 
-
           <form action="" [formGroup]="questionForm">
                 <div class="form-group">
                   <label for="questionField">Question</label>
@@ -12,23 +11,32 @@
                 </div>
           </form>
 
+
           <form action="" [formGroup]="optionsForm">
             <div options class="w-50">
               <div class="input-group mb-3" *ngFor="let item of options; let index = index; ">
-                  <!-- <div class="input-group-prepend"> -->
                     <span class="input-group-text" id="inputGroup-sizing-default">Option  </span>
-                  <!-- </div> -->
                   <input formControlName="{{item.option_id}}" type="text" (keyup.enter)="newOptionbtn()"  class="form-control w-25" aria-label="Default">
                   <button (click)="removeOption(index, item.option_id)" type="button" title="Remove Option" class=" btn btn-danger mx-3 remove">
                     &times;
                 </button>
             
                 </div>
-              <!-- new option will be appended here -->
 
             </div>
           </form>
+ 
+          <mat-card class="option-card" *ngFor="let pollItem of pollModel.pollItems; let i = index">
+            <mat-form-field class="full-width"> 
+              <input matInput placeholder="Option {{ i + 1 }}">
+            </mat-form-field>
+            <mat-icon class="close" (click)="remove(pollItem)" style="cursor: pointer;">close</mat-icon>
+          </mat-card>
 
+          <div style="padding-top: 30px;">
+            <button mat-raised-button (click)="addPollItem()" aria-label="Add option">Add option</button>
+            <button mat-raised-button color="primary" [disabled]="!saveActive()" class="save-btn" (click)="save()" aria-label="Save">Save</button>
+          </div>
 
           <div class="text-right ">
               <span class="text-muted small">new option</span>
@@ -43,8 +51,9 @@
             <div>
               E-mail(s): <input type="email" formControlName="email" name="emailaddress" multiple>
           </div>
-        <!-- </ng-template> -->
         </form>
+
+      
 
         <div class="card-body">
           <button (click)="onSubmit()" type="submit" class="btn btn-raised btn-info btn-block">SEND MAIL</button>

@@ -1,0 +1,23 @@
+
+
+
+<mat-form-field class="full-width">
+    <input matInput placeholder="Question of the poll"  [(ngModel)]="poll.name">
+       <!-- (keyup.enter)="update(poll.name)"  (blur)="update(poll.name)"> -->
+  </mat-form-field>
+
+
+  <mat-card class="option-card"  *ngFor="let pollItem of poll.pollItems; let i = index">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Option {{ i + 1 }}" [(ngModel)]="pollItem.name">
+    </mat-form-field>
+    <mat-icon class="close" (click)="remove(pollItem)" style="cursor: pointer;">close</mat-icon>
+  </mat-card>
+
+
+  <div style="padding-top: 30px;">
+    <button mat-raised-button (click)="addPollItem()" aria-label="Add option">Add option</button>
+    <button mat-raised-button color="primary" class="save-btn" (click)="save()" aria-label="Save">Save</button>
+  </div>
+
+  
