@@ -188,6 +188,7 @@ onSubmit() {
   console.log("Printing emailForm | ",this.emailForm.value.email);
 
 
+  
   // this.poll.question.question = this.questionForm.value.question;
   // this.poll.question.poll_id = UUID.UUID();
 
@@ -276,5 +277,7 @@ public removeOption( id: number,  option_id: string ) : void {
   
   // }
 
-
+  // this.appservice.addOptions(this.poll.pollItems[0]).subscribe(response => {
+  //   console.log(response);
+  // })
 }

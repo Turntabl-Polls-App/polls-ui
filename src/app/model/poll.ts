@@ -1,12 +1,15 @@
 export interface Poll {
-    pollid: string,
-    name: string,
-    pollItems: PollItem[],
+    creator_id: string,
+    poll_id: string,
+    question: string,
+    options: Options[],
     selectMultiple: boolean,
 
 }
 
-export interface PollItem {
-    pollItemid: string,
-    name: string,
+
+export interface Options {
+    option_id: string,
+    content: string,
+    poll_id: string,
 }

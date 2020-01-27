@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UUID } from 'angular2-uuid';
-import {Poll } from  '../model/poll';
+import {Poll, Options } from  '../model/poll';
+import { AppserviceService } from '../appservice.service';
 
 
 @Component({
@@ -13,50 +14,69 @@ import {Poll } from  '../model/poll';
 
 export class MatpollformComponent implements OnInit {
 
- 
+
+  pollid 
+  
+
   poll: Poll
+  addNewPoll
 
+  constructor(private appservice : AppserviceService) { 
+    this.pollid = UUID.UUID()
 
-  constructor() { 
+     
     this.poll = {
-      pollid: UUID.UUID(),
-      name:"",
-      pollItems: [],
+      creator_id: '101',
+      poll_id: this.pollid,
+      question:'',
+      options: [],
       selectMultiple: false,
     };
+
 
   }
 
   ngOnInit() {
   }
 
-  addPollItem(name: string): void {
-    // const id = this.afs.createId();
-    this.poll.pollItems.push({ pollItemid: UUID.UUID(), name: name})
+  addOption(name: string): void {
+    this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})
   }
 
-  remove(pollItem): void {
-    const index = this.poll.pollItems.findIndex(x => x.pollItemid === pollItem.id);
-    this.poll.pollItems.splice(index, 1);
+  remove(option): void {
+    const index = this.poll.options.findIndex(x => x.option_id === option.id);
+    this.poll.options.splice(index, 1);
   }
 
-  removePollItem(id: string): void {
-    const index: number = this.poll.pollItems.findIndex(x => x.pollItemid === id);
-    this.poll.pollItems.splice(index, 1);
+  removeOption(id: string): void {
+    const index: number = this.poll.options.findIndex(x => x.option_id === id);
+    this.poll.options.splice(index, 1);
   }
 
   save() { 
+
+    this.appservice.addNewPoll(this.poll)
+        .subscribe(response => {
+            console.log(response);
+        });
+
+
+    this.poll.options.forEach(e => {
+      this.appservice.addOptions(e).subscribe(response => {
+        console.log(response);
+        
+      })
+    })
     console.log(this.poll);
   }
 
-  saveActive(): boolean {
-    return this.poll.name.length > 0 
-      && this.poll.pollItems.length > 0 
-      && this.poll.pollItems.find(x => !x.name || x.name.length === 0) === undefined;
-  }
 
-  // update(name: string) { 
-  //   this.poll.name = name; 
-  //   this.poll.pollItem.name = name;
-  // }
+  email() {
+
+  }
+  saveActive(): boolean {
+    return this.poll.question.length > 0 
+      && this.poll.options.length > 0 
+      && this.poll.options.find(x => !x.content || x.content.length === 0) === undefined;
+  }
 }
