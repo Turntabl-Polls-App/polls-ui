@@ -27,6 +27,7 @@ export class MatpollformComponent implements OnInit {
      
     this.poll = {
       creator_id: '101',
+
       poll_id: this.pollid,
       question:'',
       options: [],
@@ -36,10 +37,13 @@ export class MatpollformComponent implements OnInit {
 
   }
 
+
+  // getPoll= {creator_id: '101', poll_id:this.pollidquestion: this.poll.question};
+
   ngOnInit() {
   }
 
-  // getPoll = {creator_id: '101', poll_id:this.pollid,question: this.poll.question}
+  
 
 
   addOption(): void {
@@ -56,28 +60,46 @@ export class MatpollformComponent implements OnInit {
     this.poll.options.splice(index, 1);
   }
 
-  save() { 
+  // save() { 
 
-    // this.appservice.addNewPoll(this.poll)
-    //     .subscribe(response => {
-    //         console.log(response);
-    //     });
-
-
-    // this.poll.options.forEach(e => {
-    //   this.appservice.addOptions(e).subscribe(response => {
-    //     console.log(response);
-        
-    //   })
-    // })
-    console.log(this.poll);
-    // console.log(this.getPoll)
-
-  }
+  //   this.appservice.addNewPoll(this.poll)
+  //       .subscribe(response => {
+  //           console.log(response);
+  //       });
 
 
-  email() {
+  
+  //   // setTimeout(() => {
+  //     this.poll.options.forEach(e => {
+  //       this.appservice.addOptions(e).subscribe(response => {
+  //         console.log(response);
+          
+  //       })
+  //     })
+  //   // }, 2000);
+  //   console.log(this.poll);
+  //   // console.log(this.getPoll)
 
+  // }
+
+
+  sendmail() {
+    this.appservice.addNewPoll(this.poll)
+    .subscribe(response => {
+        console.log(response);
+    });
+
+
+
+setTimeout(() => {
+  this.poll.options.forEach(e => {
+    this.appservice.addOptions(e).subscribe(response => {
+      console.log(response);
+      
+    })
+  })
+}, 2000);
+console.log(this.poll);
   }
   saveActive(): boolean {
     return this.poll.question.length > 0 
