@@ -19,7 +19,7 @@ export class MatpollformComponent implements OnInit {
   
 
   poll: Poll
-  addNewPoll
+  
 
   constructor(private appservice : AppserviceService) { 
     this.pollid = UUID.UUID()
@@ -39,7 +39,10 @@ export class MatpollformComponent implements OnInit {
   ngOnInit() {
   }
 
-  addOption(name: string): void {
+  // getPoll = {creator_id: '101', poll_id:this.pollid,question: this.poll.question}
+
+
+  addOption(): void {
     this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})
   }
 
@@ -55,19 +58,21 @@ export class MatpollformComponent implements OnInit {
 
   save() { 
 
-    this.appservice.addNewPoll(this.poll)
-        .subscribe(response => {
-            console.log(response);
-        });
+    // this.appservice.addNewPoll(this.poll)
+    //     .subscribe(response => {
+    //         console.log(response);
+    //     });
 
 
-    this.poll.options.forEach(e => {
-      this.appservice.addOptions(e).subscribe(response => {
-        console.log(response);
+    // this.poll.options.forEach(e => {
+    //   this.appservice.addOptions(e).subscribe(response => {
+    //     console.log(response);
         
-      })
-    })
+    //   })
+    // })
     console.log(this.poll);
+    // console.log(this.getPoll)
+
   }
 
 
