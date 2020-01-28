@@ -13,23 +13,30 @@ app.use(express.static(__dirname + '/dist/poll-ui'));
 
 app.use(bodyParser.json());
 
-// app.use(cors());
+app.use(cors());
 
-const corsOptions = {
-	credentials: true,
-	origin: true,
-	origin: 'https://poll-ui.herokuapp.com/',
-	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-app.get('/*', function(req, res) {
-	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', 'https://poll-ui.herokuapp.com'); // update to match the domain you will make the request from
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
 });
 
+app.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
+});
+/*
 app.post('/sendmail', cors(corsOptions), function(req, res, next) {
 	const user = req.body;
 	mail(user.email);
+
 	next();
+});
+*/
+
+app.get('/sendmail', function(req, res) {
+	console.log('sending mail...');
+	res.header('Access-Control-Allow-Headers', 'x-requested-with, x-requested-by');
+	mail(req.query.email);
 });
 
 // Start the app by listening on the default Heroku port

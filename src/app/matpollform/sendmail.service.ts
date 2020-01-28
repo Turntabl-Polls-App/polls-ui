@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class SendmailService {
 	constructor(private http: HttpClient) {}
 
-	private mailrl = 'https://polls-angular-ui.herokuapp.com/sendmail';
+	private mailrl = 'https://cors-anywhere.herokuapp.com/https://polls-angular-ui.herokuapp.com/sendmail';
 	// private mailrl = 'http://localhost:8080/sendmail';
 
 	// sendmail(user: object): Observable<User> {
