@@ -42,8 +42,6 @@ export class MatpollformComponent implements OnInit {
   }
 
   
-
-
   addOption(): void {
     this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})
   }
@@ -58,9 +56,6 @@ export class MatpollformComponent implements OnInit {
     this.poll.options.splice(index, 1);
   }
 
-  // save() { 
-
-  // }
 
 
   sendmail() {

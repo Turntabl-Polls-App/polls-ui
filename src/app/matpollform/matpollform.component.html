@@ -24,7 +24,7 @@
 
     <mat-card class="email-card">
       <mat-form-field>
-        <input matInput placeholder="Email" >
+        <input matInput placeholder="Email"  [(ngModel)] = "poll.recipient_email" >
       </mat-form-field>
       <button mat-raised-button color="primary"(click)="sendmail()" aria-label="Email with Turntabl">Send Mail Group</button>
     </mat-card>
