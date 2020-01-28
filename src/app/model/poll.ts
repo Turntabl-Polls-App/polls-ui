@@ -1,8 +1,9 @@
 export interface Poll {
-    creator_id: string,
     poll_id: string,
     question: string,
     options: Options[],
+    creator_email: string,
+    recipient_email:string,
     selectMultiple: boolean,
 
 }

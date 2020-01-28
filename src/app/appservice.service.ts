@@ -12,7 +12,7 @@ export class AppserviceService {
   constructor(private http: HttpClient) { }
 
 
-  private _url: string = "http://localhost:5050/api/v1/polls";
+  private _url: string = "http://localhost:5050/api/v1/addNewPoll2";
   private  _option_url: string = "http://localhost:5050/api/v1/options";
   
 
@@ -45,5 +45,6 @@ export class AppserviceService {
   deletePoll(id: number): Observable<Poll>{
     return this.http.delete<Poll>(this._url +  id);
   }
+
 
 }

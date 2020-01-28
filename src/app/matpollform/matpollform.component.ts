@@ -26,19 +26,17 @@ export class MatpollformComponent implements OnInit {
 
      
     this.poll = {
-      creator_id: '101',
-
+      recipient_email: '',
       poll_id: this.pollid,
       question:'',
       options: [],
+      creator_email: 'yaa@turntabl.io',
       selectMultiple: false,
     };
 
 
   }
 
-
-  // getPoll= {creator_id: '101', poll_id:this.pollidquestion: this.poll.question};
 
   ngOnInit() {
   }
@@ -62,24 +60,6 @@ export class MatpollformComponent implements OnInit {
 
   // save() { 
 
-  //   this.appservice.addNewPoll(this.poll)
-  //       .subscribe(response => {
-  //           console.log(response);
-  //       });
-
-
-  
-  //   // setTimeout(() => {
-  //     this.poll.options.forEach(e => {
-  //       this.appservice.addOptions(e).subscribe(response => {
-  //         console.log(response);
-          
-  //       })
-  //     })
-  //   // }, 2000);
-  //   console.log(this.poll);
-  //   // console.log(this.getPoll)
-
   // }
 
 
@@ -91,15 +71,15 @@ export class MatpollformComponent implements OnInit {
 
 
 
-setTimeout(() => {
-  this.poll.options.forEach(e => {
-    this.appservice.addOptions(e).subscribe(response => {
-      console.log(response);
+  //   setTimeout(() => {
+  //   this.poll.options.forEach(e => {
+  //     this.appservice.addOptions(e).subscribe(response => {
+  //       console.log(response);
       
-    })
-  })
-}, 2000);
-console.log(this.poll);
+  //   })
+  // })
+  //     }, 2000);
+        console.log(this.poll);
   }
   saveActive(): boolean {
     return this.poll.question.length > 0 
@@ -107,3 +87,4 @@ console.log(this.poll);
       && this.poll.options.find(x => !x.content || x.content.length === 0) === undefined;
   }
 }
+
