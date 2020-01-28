@@ -12,8 +12,8 @@ export class AppserviceService {
   constructor(private http: HttpClient) { }
 
 
-  private _url: string = "http://localhost:5050/api/v1/addNewPoll2";
-  private  _option_url: string = "http://localhost:5050/api/v1/options";
+  private _url: string = "https://options-web.herokuapp.com/api/v1/addNewPoll2";
+  private  _option_url: string = "https://options-web.herokuapp.com/api/v1/options";
   
 
   getPolls(): Observable<Poll[]>{

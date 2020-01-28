@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 import {Poll, Options } from  '../model/poll';
 import { AppserviceService } from '../appservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class MatpollformComponent implements OnInit {
   poll: Poll
   
 
-  constructor(private appservice : AppserviceService) { 
+  constructor(private appservice : AppserviceService, private router: Router) { 
     this.pollid = UUID.UUID()
 
      
@@ -62,6 +63,8 @@ export class MatpollformComponent implements OnInit {
     this.appservice.addNewPoll(this.poll)
     .subscribe(response => {
         console.log(response);
+
+        this.router.navigate(['/response']);
     });
 
 

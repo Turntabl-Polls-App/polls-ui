@@ -19,6 +19,8 @@ import {FormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ModelComponent } from './model/model.component';
+import { ResponseComponent } from './response/response.component';
+
 
 
 
@@ -29,7 +31,9 @@ import { ModelComponent } from './model/model.component';
     MatpollformComponent,
     FooterComponent,
     HeaderComponent,
-    ModelComponent
+    ModelComponent,
+    ResponseComponent,
+  
   ],
   imports: [
     BrowserModule,
