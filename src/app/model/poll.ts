@@ -8,9 +8,12 @@ export interface Poll {
 
 }
 
-
 export interface Options {
     option_id: string,
     content: string,
     poll_id: string,
+}
+
+export interface User{
+    email: string
 }
