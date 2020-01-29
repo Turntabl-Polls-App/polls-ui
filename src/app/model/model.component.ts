@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-model',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,private meta: Meta,) { }
 
   ngOnInit() {
+  }
+
+  createPoll() {
+    this.router.navigate(['/matpollform']);
   }
 
 }
