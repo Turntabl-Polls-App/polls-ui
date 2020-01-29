@@ -2,7 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 
 // Change this to one of your email addresses in the organisation
-const YOUR_EMAIL_ADDRESS = 'isaac.agyen@turntabl.io';
+const YOUR_EMAIL_ADDRESS = process.env.USER_EMAIL;
 
 async function start(toEmail) {
 	// Change this to the receiver to the mail
@@ -15,8 +15,8 @@ async function start(toEmail) {
 		auth: {
 			type: 'OAuth2',
 			user: YOUR_EMAIL_ADDRESS,
-			serviceClient: "",
-			privateKey:  ""
+			serviceClient: process.env.CLIENT_ID,
+			privateKey:  process.env.PRIVATE_KEY
 		}
 	});
 	try {
