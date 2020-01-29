@@ -24,6 +24,7 @@ import { ModelComponent } from './model/model.component';
 import { ResponseComponent } from './response/response.component';
 import { PollManagementComponent } from './poll-management/poll-management.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
 
 
 
@@ -39,6 +40,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     PollManagementComponent,
     SpinnerComponent,
   
+    ThankyoupageComponent
   ],
   imports: [
     BrowserModule,
