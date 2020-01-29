@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const mail = require('./src/app/matpollform/mail');
 
-setTimeout(() =>{
 const app = express();
 
 
@@ -36,4 +35,4 @@ app.post('/sendmail', cors(corsOptions), function(req, res) {
 app.listen(process.env.PORT || 8080, () => {
 	console.log('Server started...');
 });
-}, 2000)
+
