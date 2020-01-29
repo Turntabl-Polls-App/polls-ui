@@ -12,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
 
 
-import {MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatButtonModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatButtonModule, MatInputModule, MatMenuModule, MatToolbarModule, MatSnackBarModule, MatDividerModule} from '@angular/material';
 import { MatpollformComponent } from './matpollform/matpollform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ModelComponent } from './model/model.component';
 import { ResponseComponent } from './response/response.component';
+
 
 
 
@@ -48,8 +49,13 @@ import { ResponseComponent } from './response/response.component';
     MatInputModule,
     MatDialogModule,
     MatToolbarModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    MatMenuModule,
+    MatDividerModule,
     BrowserAnimationsModule, 
     FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,12 +15,12 @@
     <mat-icon class="close" (click)="remove(option)" style="cursor: pointer;">close</mat-icon>
   </mat-card>
 
-
+<br>
   <div style="padding-top: 30px;">
     <button mat-raised-button (click)="addOption()" aria-label="Add option">Add option</button>
     <!-- <button mat-raised-button color="primary" class="save-btn" (click)="save()" aria-label="Save">Save</button> -->
   </div>
-  
+  <br>
 
     <mat-card class="creator email-card">
       <mat-form-field>
@@ -33,7 +33,7 @@
         <input matInput placeholder="Recipient Email"  [(ngModel)] = "poll.recipient_email" >
       </mat-form-field>
       <button mat-raised-button color="primary"(click)="sendmail()" routerLink="/response" aria-label="Email with Turntabl">Send Mail Group </button>
-    </mat-card>
+      </mat-card>
   
 
 
