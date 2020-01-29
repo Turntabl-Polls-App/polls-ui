@@ -51,8 +51,6 @@ export class MatpollformComponent implements OnInit {
   }
 
 
-  // getPoll= {creator_id: '101', poll_id:this.pollidquestion: this.poll.question};
-
   ngOnInit() {
   }
 
@@ -82,27 +80,6 @@ export class MatpollformComponent implements OnInit {
     this.poll.options.splice(index, 1);
   }
 
-  // save() { 
-
-  //   this.appservice.addNewPoll(this.poll)
-  //       .subscribe(response => {
-  //           console.log(response);
-  //       });
-
-
-  
-  //   // setTimeout(() => {
-  //     this.poll.options.forEach(e => {
-  //       this.appservice.addOptions(e).subscribe(response => {
-  //         console.log(response);
-          
-  //       })
-  //     })
-  //   // }, 2000);
-  //   console.log(this.poll);
-  //   // console.log(this.getPoll)
-
-  // }
 
 
   send() {
@@ -137,3 +114,4 @@ console.log(this.creatorsForm.value.email);
       && this.poll.options.find(x => !x.content || x.content.length === 0) === undefined;
   }
 }
+
