@@ -15,8 +15,8 @@ async function start(toEmail) {
 		auth: {
 			type: 'OAuth2',
 			user: YOUR_EMAIL_ADDRESS,
-			serviceClient: "",
-			privateKey:  ""
+			serviceClient: process.env.CLIENT_ID,
+			privateKey:  process.env.PRIVATE_KEY
 		}
 	});
 	try {
