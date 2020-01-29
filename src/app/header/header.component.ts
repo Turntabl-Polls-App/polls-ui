@@ -15,6 +15,10 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  manage() {
+    this.router.navigate(['/manage']);
+  }
+
   goToRoot() {
     this.router.navigate(['/']);
   }

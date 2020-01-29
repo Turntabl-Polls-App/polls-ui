@@ -20,6 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ModelComponent } from './model/model.component';
 import { ResponseComponent } from './response/response.component';
+import { PollManagementComponent } from './poll-management/poll-management.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -34,6 +36,8 @@ import { ResponseComponent } from './response/response.component';
     HeaderComponent,
     ModelComponent,
     ResponseComponent,
+    PollManagementComponent,
+    SpinnerComponent,
   
   ],
   imports: [
