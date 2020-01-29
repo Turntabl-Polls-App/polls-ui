@@ -23,7 +23,7 @@ export class MatpollformComponent implements OnInit {
     });
 
     user = {
-      email: process.env.USER_EMAIL
+      email: 'isaac.agyen@turntabl.io'
     }
 
     userObservable: Observable<User>
