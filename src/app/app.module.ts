@@ -10,6 +10,8 @@ import * as charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { ReactiveFormsModule } from '@angular/forms'
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
+import { RouterModule, Routes } from '@angular/router';
+
 
 
 import {MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatButtonModule, MatInputModule, MatMenuModule, MatToolbarModule, MatSnackBarModule, MatDividerModule} from '@angular/material';
@@ -23,8 +25,6 @@ import { ResponseComponent } from './response/response.component';
 
 
 
-
-
 // Pass the fusioncharts library and chart module
 @NgModule({
   declarations: [
@@ -33,8 +33,7 @@ import { ResponseComponent } from './response/response.component';
     FooterComponent,
     HeaderComponent,
     ModelComponent,
-    ResponseComponent,
-  
+    ResponseComponent
   ],
   imports: [
     BrowserModule,

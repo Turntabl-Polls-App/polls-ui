@@ -1,7 +1,4 @@
-
-
-
-<mat-form-field class="full-width">
+<mat-form-field class="full-width" >
     <input matInput placeholder="Question of the poll"  [(ngModel)]="poll.question">
        <!-- (keyup.enter)="update(poll.name)"  (blur)="update(poll.name)"> -->
   </mat-form-field>
@@ -29,11 +26,11 @@
     </mat-card>
 
     <mat-card class="recipient email-card">
-      <mat-form-field>
-        <input matInput placeholder="Recipient Email"  [(ngModel)] = "poll.recipient_email" >
+      <mat-form-field [formGroup]="creatorsForm" (ngSubmit)="onSubmit()">
+        <input matInput placeholder="Recipient Email"  [(ngModel)] = "poll.recipient_email" formControlName="email" >
       </mat-form-field>
-      <button mat-raised-button color="primary"(click)="sendmail()" routerLink="/response" aria-label="Email with Turntabl">Send Mail Group </button>
-      </mat-card>
+      <button type="submit" mat-raised-button color="primary"(click)="send()" routerLink="/response" aria-label="Email with Turntabl">Send Mail </button>
+    </mat-card>
   
 
 

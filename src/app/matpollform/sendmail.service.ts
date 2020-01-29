@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {User} from '../../app/model/poll'
 
 
 @Injectable({
@@ -9,10 +10,10 @@ import { Observable } from 'rxjs';
 export class SendmailService {
 	constructor(private http: HttpClient) {}
 
-	private mailrl = 'https://cors-anywhere.herokuapp.com/https://polls-angular-ui.herokuapp.com/sendmail';
-	// private mailrl = 'http://localhost:8080/sendmail';
+	// private mailrl = 'https://polls-angular-ui.herokuapp.com/sendmail';
+	 private mailrl = 'http://localhost:8080/sendmail';
 
-	// sendmail(user: object): Observable<User> {
-	// 	return this.http.post<User>(this.mailrl, user);
-	// }
+	sendmail(user: object): Observable<User> {
+		return this.http.post<User>(this.mailrl, user);
+	}
 }
