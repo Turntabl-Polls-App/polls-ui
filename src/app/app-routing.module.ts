@@ -8,6 +8,7 @@ const routes: Routes = [
 	{path: 'matpollform', component: MatpollformComponent},
 	{ path: 'manage', component: PollManagementComponent },
 	{ path: '',   component: ModelComponent},
+	// { path: 'polls/manage/:id', component: PollManagementComponent },
 	{path: '', redirectTo: '/',pathMatch: 'full'},
 	{path: 'response', component: ResponseComponent}
 ];
