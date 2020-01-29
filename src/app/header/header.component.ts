@@ -13,6 +13,11 @@ export class HeaderComponent implements OnInit {
   addPoll() {
     this.router.navigate(['/matpollform']);
   }
+
+
+  goToRoot() {
+    this.router.navigate(['/']);
+  }
   ngOnInit() {
   }
 
