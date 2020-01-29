@@ -10,6 +10,8 @@ import * as charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { ReactiveFormsModule } from '@angular/forms'
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
+import { RouterModule, Routes } from '@angular/router';
+
 
 
 import {MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatButtonModule, MatInputModule, MatToolbarModule} from '@angular/material';
@@ -19,6 +21,7 @@ import {FormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ModelComponent } from './model/model.component';
+import { ResponseComponent } from './response/response.component';
 
 
 
@@ -29,7 +32,8 @@ import { ModelComponent } from './model/model.component';
     MatpollformComponent,
     FooterComponent,
     HeaderComponent,
-    ModelComponent
+    ModelComponent,
+    ResponseComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 import {Poll, Options } from  '../model/poll';
 import { AppserviceService } from '../appservice.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import {SendmailService} from './sendmail.service';
+import {User} from '../model/poll';
+import { Observable } from 'rxjs'
 
 
 @Component({
@@ -14,6 +18,15 @@ import { AppserviceService } from '../appservice.service';
 
 export class MatpollformComponent implements OnInit {
 
+  creatorsForm = new FormGroup({
+    email: new FormControl('')
+    });
+
+    user = {
+      email: "isaac.agyen@gmail.com"
+    }
+
+    userObservable: Observable<User>
 
   pollid 
   
@@ -21,16 +34,16 @@ export class MatpollformComponent implements OnInit {
   poll: Poll
   
 
-  constructor(private appservice : AppserviceService) { 
+  constructor(private appservice : AppserviceService, private sendmailService: SendmailService) { 
     this.pollid = UUID.UUID()
 
      
     this.poll = {
-      creator_id: '101',
-
+      recipient_email: '',
       poll_id: this.pollid,
       question:'',
       options: [],
+      creator_email: 'yaa@turntabl.io',
       selectMultiple: false,
     };
 
@@ -43,7 +56,16 @@ export class MatpollformComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(){
+    
+    this.user.email = this.creatorsForm.value.email;
+    console.log(this.user.email);
   
+    // this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
+  
+    // console.log(this.creatorsForm.value);
+    
+  }
 
 
   addOption(): void {
@@ -83,7 +105,7 @@ export class MatpollformComponent implements OnInit {
   // }
 
 
-  sendmail() {
+  send() {
     this.appservice.addNewPoll(this.poll)
     .subscribe(response => {
         console.log(response);
@@ -91,16 +113,24 @@ export class MatpollformComponent implements OnInit {
 
 
 
-setTimeout(() => {
-  this.poll.options.forEach(e => {
-    this.appservice.addOptions(e).subscribe(response => {
-      console.log(response);
+// setTimeout(() => {
+//   this.poll.options.forEach(e => {
+//     this.appservice.addOptions(e).subscribe(response => {
+//       console.log(response);
       
-    })
-  })
-}, 2000);
+//     })
+//   })
+// }, 2000);
+
 console.log(this.poll);
+console.log(this.creatorsForm.value.email);
+
+  // this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
+  this.sendmailService.sendmail(this.poll).subscribe()
+
   }
+
+
   saveActive(): boolean {
     return this.poll.question.length > 0 
       && this.poll.options.length > 0 
