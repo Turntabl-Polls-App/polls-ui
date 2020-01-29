@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ModelComponent } from './model/model.component';
 import { ResponseComponent } from './response/response.component';
+import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
 
 
 
@@ -33,7 +34,8 @@ import { ResponseComponent } from './response/response.component';
     FooterComponent,
     HeaderComponent,
     ModelComponent,
-    ResponseComponent
+    ResponseComponent,
+    ThankyoupageComponent
   ],
   imports: [
     BrowserModule,
