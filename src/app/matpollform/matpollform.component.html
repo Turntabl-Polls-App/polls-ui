@@ -22,9 +22,15 @@
   </div>
   
 
-    <mat-card class="email-card">
+    <mat-card class="creator email-card">
       <mat-form-field>
-        <input matInput placeholder="Email"  [(ngModel)] = "poll.recipient_email" >
+        <input matInput placeholder="Creator Email"  [(ngModel)] = "poll.creator_email" >
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card class="recipient email-card">
+      <mat-form-field>
+        <input matInput placeholder="Recipient Email"  [(ngModel)] = "poll.recipient_email" >
       </mat-form-field>
       <button mat-raised-button color="primary"(click)="sendmail()" routerLink="/response" aria-label="Email with Turntabl">Send Mail Group </button>
     </mat-card>

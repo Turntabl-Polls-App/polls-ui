@@ -31,7 +31,7 @@ export class MatpollformComponent implements OnInit {
       poll_id: this.pollid,
       question:'',
       options: [],
-      creator_email: 'yaa@turntabl.io',
+      creator_email: '',
       selectMultiple: false,
     };
 
