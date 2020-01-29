@@ -20,6 +20,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="#79f4bc">
 
 
+  <meta name="apple-mobile-web-app-title" content="Pollster">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="application-name" content="&nbsp;" />
 
@@ -31,11 +33,39 @@
   <!-- <script src="https://kit.fontawesome.com/2be69c7468.js"></script> -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" media="screen" rel="preload" as="style" rel="stylesheet" onload="this.rel = 'stylesheet'" crossorigin>
+  
+
+  <meta property="og:site_name" content="Pollster">
+  <meta name="title" content="Pollster">
+  <meta property="og:title" content="Pollster: Vote now!">
+  <meta name="description" content="Poll creation and sharing made easy. Instant. Mobile. Share the way you want!">
+  <meta property="og:description" content="Poll creation and sharing made easy. Instant. Mobile. Share the through email!">
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Pollster" />
+
+
 </head>
 
 
 <body>
-  <app-root></app-root>
+  <app-root>
+    <noscript>
+      <h3 style="color: #673ab7; font-family: 'Amatic SC', cursive; margin: 2rem;">
+        Sorry, but app is not available without javascript
+      </h3>
+    </noscript>
+    <div class="spinner-bg">
+      <div class="loader">
+        <div class="spinner">
+          <div class="spinner">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-root>
 
   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
