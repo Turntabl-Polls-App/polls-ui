@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NewPollComponent } from './new-poll/new-poll.component';
-
-const routes: Routes = [];
+import {MatpollformComponent } from './matpollform/matpollform.component';
+import {ResponseComponent} from './response/response.component';
+const routes: Routes = [
+	{path: '', component: MatpollformComponent},
+	{path: '', redirectTo: 'matpollform',pathMatch: 'full'},
+	{path: 'response', component: ResponseComponent}
+];
 
 @NgModule({
 	imports: [ RouterModule.forRoot(routes) ],

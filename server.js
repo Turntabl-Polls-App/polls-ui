@@ -4,34 +4,33 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const mail = require('./src/mail');
+const mail = require('./src/app/matpollform/mail');
+
 
 const app = express();
+
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/poll-ui'));
 
 app.use(bodyParser.json());
 
-app.use(cors());
 
-app.get('/', function(req, res) {
+const corsOptions = {
+	//origin: 'https://poll-angular-ui.herokuapp.com/',
+	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
 
-// app.post('/sendmail', function(req, res, next) {
-// 	const user = req.body;
-// 	mail(user.email);
-
-// 	next();
-// });
-
-
-app.get('/sendmail', function(req, res) {
+app.post('/sendmail', cors(corsOptions), function(req, res) {
 	console.log('sending mail...');
 	const user = req.body;
-	mail(user.email);
+	mail(user);
 });
+
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080, () => {
