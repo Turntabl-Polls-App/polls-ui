@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {MatpollformComponent } from './matpollform/matpollform.component';
 import {ResponseComponent} from './response/response.component';
 const routes: Routes = [
-	{path: '', component: MatpollformComponent},
+	{path: 'matpollform', component: MatpollformComponent},
 	{path: '', redirectTo: 'matpollform',pathMatch: 'full'},
 	{path: 'response', component: ResponseComponent}
 ];
