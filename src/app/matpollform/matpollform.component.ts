@@ -104,6 +104,8 @@ console.log(this.creatorsForm.value.email);
 
   // this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
   this.sendmailService.sendmail(this.poll).subscribe()
+  this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
+  // this.sendmailService.sendmail(this.poll).subscribe()
 
   }
 
