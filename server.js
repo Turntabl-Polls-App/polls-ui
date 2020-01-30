@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
 
-app.post('/sendmail', cors(corsOptions), function(req, res) {
+app.post('/sendmail', function(req, res) {
 	console.log('sending mail...');
 	const user = req.body;
 	mail(user);

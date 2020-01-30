@@ -21,7 +21,6 @@ import { Observable } from 'rxjs'
     });
 
     user = { email: 'isaac.agyen@turntabl.io'}
-
     userObservable: Observable<User>
 
   
