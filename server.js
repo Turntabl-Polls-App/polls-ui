@@ -19,19 +19,6 @@ app.options('*', cors());
 
 
 
-<<<<<<< HEAD
-=======
-// app.post('/sendmail', function(req, res) {
-// 	console.log('sending mail...');
-// 	const user = req.body;
-// 	mail(user);
-// });
-
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
-});
-
->>>>>>> 991433274ebe9baa36af9dbdf62c619b4eb4b3af
 app.post('/sendmail', function(req, res) {
 	console.log('sending mail...');
 	const user = req.body;
