@@ -10,8 +10,8 @@ import {User} from '../../app/model/poll'
 export class SendmailService {
 	constructor(private http: HttpClient) {}
 
-	 private mailurl = 'http://localhost:8080/sendmail';
-	//  private mailurl = 'https://polls-angular-ui.herokuapp.com/sendmail'
+	//  private mailurl = 'http://localhost:8080/sendmail';
+	 private mailurl = 'https://polls-angular-ui.herokuapp.com/sendmail'
 
 	sendmail(user: object): Observable<User> {
 		return this.http.post<User>(this.mailurl, user);
