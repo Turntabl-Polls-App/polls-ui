@@ -12,12 +12,10 @@ const app = express();
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/poll-ui'));
 
-// app.use(bodyParser.json());
-app.use(express.json());
+app.use(bodyParser.json());
+// app.use(express.json());
 app.use(cors());
 app.options('*', cors());
-
-
 
 app.post('/sendmail', function(req, res) {
 	console.log('sending mail...');
