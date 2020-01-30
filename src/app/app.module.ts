@@ -39,8 +39,7 @@ import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
     ResponseComponent,
     PollManagementComponent,
     SpinnerComponent,
-  
-    ThankyoupageComponent
+   ThankyoupageComponent
   ],
   imports: [
     BrowserModule,
