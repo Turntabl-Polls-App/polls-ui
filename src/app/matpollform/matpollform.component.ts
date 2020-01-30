@@ -14,27 +14,20 @@ import { Observable } from 'rxjs'
   styleUrls: ['./matpollform.component.scss']
 })
 
-
-
-export class MatpollformComponent implements OnInit {
+  export class MatpollformComponent implements OnInit {
 
   creatorsForm = new FormGroup({
     email: new FormControl('')
     });
 
-    user = {
-      email: 'isaac.agyen@turntabl.io'
-    }
-
+    user = { email: 'isaac.agyen@turntabl.io'}
     userObservable: Observable<User>
 
-  pollid 
   
-
-  poll: Poll
+    pollid 
+    poll: Poll
   
-
-  constructor(private appservice : AppserviceService, private sendmailService: SendmailService) { 
+    constructor(private appservice : AppserviceService, private sendmailService: SendmailService) { 
     this.pollid = UUID.UUID()
 
      
@@ -46,29 +39,17 @@ export class MatpollformComponent implements OnInit {
       creator_email: '',
       selectMultiple: false,
     };
-
-
   }
 
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit(){
-    
     this.user.email = this.creatorsForm.value.email;
-    console.log(this.user.email);
-  
-    // this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
-  
-    // console.log(this.creatorsForm.value);
-    
-  }
-
+    console.log(this.user.email);}
 
   addOption(): void {
-    this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})
-  }
+    this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})}
 
   remove(option): void {
     const index = this.poll.options.findIndex(x => x.option_id === option.id);
@@ -90,22 +71,12 @@ export class MatpollformComponent implements OnInit {
 
 
 
-// setTimeout(() => {
-//   this.poll.options.forEach(e => {
-//     this.appservice.addOptions(e).subscribe(response => {
-//       console.log(response);
-      
-//     })
-//   })
-// }, 2000);
-
 console.log(this.poll);
 console.log(this.creatorsForm.value.email);
 
-  // this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
   this.sendmailService.sendmail(this.poll).subscribe()
   this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
-  // this.sendmailService.sendmail(this.poll).subscribe()
+
 
   }
 
