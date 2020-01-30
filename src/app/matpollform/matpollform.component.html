@@ -1,13 +1,11 @@
 <mat-form-field class="full-width" >
     <input matInput placeholder="Question of the poll"  [(ngModel)]="poll.question">
-       <!-- (keyup.enter)="update(poll.name)"  (blur)="update(poll.name)"> -->
-  </mat-form-field>
+</mat-form-field>
 
 
   <mat-card class="option-card"  *ngFor="let option of poll.options; let i = index">
     <mat-form-field class="full-width">
-      <input matInput placeholder="Option {{ i + 1 }}" [(ngModel)]="option.content"  (keyup.enter)="addOption()">
-      
+      <input matInput placeholder="Option {{ i + 1 }}" [(ngModel)]="option.content"  (keyup.enter)="addOption()">      
     </mat-form-field>
     <mat-icon class="close" (click)="remove(option)" style="cursor: pointer;">close</mat-icon>
   </mat-card>
@@ -17,20 +15,20 @@
     <button mat-raised-button (click)="addOption()" aria-label="Add option">Add option</button>
     <!-- <button mat-raised-button color="primary" class="save-btn" (click)="save()" aria-label="Save">Save</button> -->
   </div>
-  <br>
+<br>
 
-    <mat-card class="creator email-card">
-      <mat-form-field>
-        <input matInput placeholder="Creator Email"  [(ngModel)] = "poll.creator_email" >
-      </mat-form-field>
-    </mat-card>
+<mat-card class="creator email-card">
+    <mat-form-field>
+      <input matInput placeholder="Creator Email"  [(ngModel)] = "poll.creator_email" >
+    </mat-form-field>
+</mat-card>
 
-    <mat-card class="recipient email-card">
-      <mat-form-field [formGroup]="creatorsForm" (ngSubmit)="onSubmit()">
+<mat-card class="recipient email-card">
+    <mat-form-field [formGroup]="creatorsForm" (ngSubmit)="onSubmit()">
         <input matInput placeholder="Recipient Email"  [(ngModel)] = "poll.recipient_email" formControlName="email" >
-      </mat-form-field>
+    </mat-form-field>
       <button type="submit" mat-raised-button color="primary"(click)="send()" routerLink="/response" aria-label="Email with Turntabl">Send Mail </button>
-    </mat-card>
+</mat-card>
   
 
 

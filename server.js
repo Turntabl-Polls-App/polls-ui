@@ -14,14 +14,18 @@ app.use(express.static(__dirname + '/dist/poll-ui'));
 
 // app.use(bodyParser.json());
 app.use(express.json());
+app.use(cors());
+app.options('*', cors());
 
 
-const corsOptions = {
-	//origin: 'https://poll-angular-ui.herokuapp.com/',
-	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
 
-app.get('/*', function(req, res) {
+// app.post('/sendmail', function(req, res) {
+// 	console.log('sending mail...');
+// 	const user = req.body;
+// 	mail(user);
+// });
+
+app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
 
@@ -30,7 +34,6 @@ app.post('/sendmail', cors(corsOptions), function(req, res) {
 	const user = req.body;
 	mail(user);
 });
-
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080, () => {
