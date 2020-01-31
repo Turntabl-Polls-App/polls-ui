@@ -41,10 +41,6 @@ import { Observable } from 'rxjs'
 
   ngOnInit() {}
 
-  onSubmit(){
-    this.user.email = this.creatorsForm.value.email;
-    console.log(this.user.email);}
-
   addOption(): void {
     this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})}
 
@@ -64,8 +60,8 @@ import { Observable } from 'rxjs'
         console.log(response);
     });
 
-  this.sendmailService.sendmail(this.poll).subscribe()
-  this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
+    this.sendmailService.sendmail(this.poll).subscribe()
+    this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
 
   }
 
@@ -75,4 +71,3 @@ import { Observable } from 'rxjs'
       && this.poll.options.find(x => !x.content || x.content.length === 0) === undefined;
   }
 }
-

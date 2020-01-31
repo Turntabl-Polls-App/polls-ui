@@ -17,7 +17,7 @@ export class AppserviceService {
 
   getPollById(id: string): Observable<Poll>{
     return this.http.get<Poll>(this._url + id);
-}
+  }
 
   getOptions(): Observable<Options[]>{
     return this.http.get<Options[]>(this._option_url);
@@ -28,18 +28,10 @@ export class AppserviceService {
   }
 
   addOptions(option:Options): Observable<Options>{
-    // option.forEach(e =>)
-    return this.http.post<Options>(this._option_url, option);
-    
+    return this.http.post<Options>(this._option_url, option);  
   }
 
   addNewPoll(poll:Poll): Observable<Poll>{
     return this.http.post<Poll>(this._url, poll);
   }
-
-  deletePoll(id: number): Observable<Poll>{
-    return this.http.delete<Poll>(this._url +  id);
-  }
-
-
 }
