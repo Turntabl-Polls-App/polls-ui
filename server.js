@@ -18,21 +18,21 @@ app.use(bodyParser.json());
 app.use(cors());
 app.options('*', cors());
 
-// app.post('/sendmail', function(req, res) {
-// 	console.log('sending mail...');
-// 	const user = req.body;
-// 	mail(user);
-// });
-
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
-});
-
 app.post('/sendmail', function(req, res) {
 	console.log('sending mail...');
 	const user = req.body;
 	mail(user);
 });
+
+app.get('/*', function(req, res) {
+	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
+});
+
+// app.post('/sendmail', function(req, res) {
+// 	console.log('sending mail...');
+// 	const user = req.body;
+// 	mail(user);
+// });
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080, () => {

@@ -17,7 +17,7 @@ async function start(toEmail) {
   
 nodemailerMailgun.sendMail({
   from: toEmail.creator_email,
-  to: toEmail.recipient_email, // An array if you have multiple recipients.
+  to: toEmail.recipient_email, 
 //   cc:'second@domain.com',
 //   bcc:'secretagent@company.gov',
   subject: 'Turntabl Poll',
