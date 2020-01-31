@@ -34,6 +34,10 @@ app.post('/sendmail', function(req, res) {
 	mail(user);
 });
 
+app.get('/thankyou', function(req, res){
+	res.sendFile(path.join(__dirname + '/thanks.html'));
+});
+
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080, () => {
 	console.log('Server started...');
