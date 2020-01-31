@@ -19,6 +19,7 @@ import { Observable } from 'rxjs'
     email: new FormControl('')
     });
 
+    user = { email: 'isaac.agyen@turntabl.io'}
     userObservable: Observable<User>
 
     pollid 
