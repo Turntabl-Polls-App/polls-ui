@@ -24,7 +24,7 @@ app.options('*', cors());
 // 	mail(user);
 // });
 
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
 
