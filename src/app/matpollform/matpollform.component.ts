@@ -60,6 +60,8 @@ import { Observable } from 'rxjs'
     });
 
     this.sendmailService.sendmail(this.poll).subscribe()
+    this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
+
   }
 
   saveActive(): boolean {
