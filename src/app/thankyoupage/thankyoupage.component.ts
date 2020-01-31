@@ -18,13 +18,12 @@ export class ThankyoupageComponent implements OnInit {
     };
 
      ngOnInit(){
-  setTimeout(() => {
-    this.activatedRoute.queryParams.
+    setTimeout(() => {
+      this.activatedRoute.queryParams.
     subscribe(params => {
-     this.responses.option_id = params.option_id
-     this.responses.poll_id = params.poll_id
-     // this.responses.suggestions = params.suggestions        // this.responses = params
-    
+      this.responses.option_id = params.option_id
+      this.responses.poll_id = params.poll_id
+  
       this.responseService.recordResponse(this.responses).subscribe(response => {
        console.log(response);       
      })
