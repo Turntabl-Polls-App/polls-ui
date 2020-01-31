@@ -1,11 +1,11 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 
-// Change this to one of your email addresses in the organisation
+// email addresses in the organisation
 const YOUR_EMAIL_ADDRESS = 'isaac.agyen@turntabl.io';
 
 async function start(toEmail) {
-	// Change this to the receiver to the mail
+	// receiver to the mail
 	const SEND_TO = toEmail.recipient_email;
 
 	const transporter = nodemailer.createTransport({
