@@ -34,7 +34,7 @@ app.post('/sendmail', function(req, res) {
 	mail(user);
 });
 
-app.get('/thankyou', function(req, res){
+app.get('/thankyoupage', function(req, res){
 	res.sendFile(path.join(__dirname + '/thanks.html'));
 });
 
