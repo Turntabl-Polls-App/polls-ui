@@ -18,7 +18,6 @@ app.get('/*', function(req, res) {
 });
 
 app.post('/sendmail', function(req, res) {
-	console.log('sending mail...');
 	const user = req.body;
 	mail(user);
 });

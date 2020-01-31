@@ -31,8 +31,6 @@ export class ThankyoupageComponent implements OnInit {
 
         })
     }, 1000);
-
-
   }
 }
 

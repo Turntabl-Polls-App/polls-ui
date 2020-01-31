@@ -26,8 +26,6 @@ import { PollManagementComponent } from './poll-management/poll-management.compo
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
 
-
-
 // Pass the fusioncharts library and chart module
 @NgModule({
   declarations: [

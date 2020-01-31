@@ -10,6 +10,7 @@ import { Poll } from '../model/poll'
   templateUrl: './poll-management.component.html',
   styleUrls: ['./poll-management.component.scss']
 })
+
 export class PollManagementComponent implements OnInit {
 
   constructor( private route: ActivatedRoute,private router: Router,  private dialog: MatDialog,private snackBar: MatSnackBar,) { }
