@@ -23,7 +23,7 @@
 </mat-card>
 
 <mat-card class="recipient email-card">
-  <mat-form-field [formGroup]="creatorsForm" (ngSubmit)="onSubmit()">
+  <mat-form-field [formGroup]="creatorsForm">
     <input matInput placeholder="Recipient Email" [(ngModel)]="poll.recipient_email" formControlName="email">
   </mat-form-field>
   <button type="submit" mat-raised-button color="primary" (click)="send()" routerLink="/response" aria-label="Email with Turntabl">Send
