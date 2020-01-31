@@ -17,8 +17,6 @@ export class PollManagementComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   navigateToPoll(poll: Poll) {
     this.router.navigate([`/poll/${poll.poll_id}`]);
   }

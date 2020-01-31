@@ -7,7 +7,6 @@ import {SendmailService} from './sendmail.service';
 import {User} from '../model/poll';
 import { Observable } from 'rxjs'
 
-
 @Component({
   selector: 'app-matpollform',
   templateUrl: './matpollform.component.html',
@@ -23,13 +22,11 @@ import { Observable } from 'rxjs'
     user = { email: 'isaac.agyen@turntabl.io'}
     userObservable: Observable<User>
 
-  
     pollid 
     poll: Poll
   
     constructor(private appservice : AppserviceService, private sendmailService: SendmailService) { 
     this.pollid = UUID.UUID()
-
      
     this.poll = {
       recipient_email: '',
@@ -61,15 +58,11 @@ import { Observable } from 'rxjs'
     this.poll.options.splice(index, 1);
   }
 
-
-
   send() {
     this.appservice.addNewPoll(this.poll)
     .subscribe(response => {
         console.log(response);
     });
-
-
 
   console.log(this.poll);
   console.log(this.creatorsForm.value.email);
@@ -78,7 +71,6 @@ import { Observable } from 'rxjs'
   this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
 
   }
-
 
   saveActive(): boolean {
     return this.poll.question.length > 0 

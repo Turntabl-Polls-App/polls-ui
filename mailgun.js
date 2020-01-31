@@ -2,13 +2,11 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
  
-// This is your API key that you retrieve from www.mailgun.com/cp (free up to 10K monthly emails)
 const auth = {
   auth: {
     api_key: process.env.MAILGUN_API_KEY,
     domain: process.env.MAILGUN_DOMAIN
   },
-  //proxy: 'http://user:pass@localhost:8080' // optional proxy, default is false
 }
  
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
@@ -22,7 +20,6 @@ nodemailerMailgun.sendMail({
 //   bcc:'secretagent@company.gov',
   subject: 'Turntabl Poll',
   'h:Reply-To': 'isaac.agyen@turntabl.io',
-  //You can use "html:" to send HTML email content. It's magic!
   html: `<!doctype html>
   <html>
     <head>

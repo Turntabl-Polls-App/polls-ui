@@ -1,4 +1,3 @@
-//Install express server
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -8,13 +7,11 @@ const mail = require('./mailgun')
 
 const app = express();
 
-// Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/poll-ui'));
 
 app.use(bodyParser.json());
 app.use(cors());
 app.options('*', cors());
-
 
 app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
@@ -26,8 +23,6 @@ app.post('/sendmail', function(req, res) {
 	mail(user);
 });
 
-
-// Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080, () => {
 	console.log('Server started...');
 });
