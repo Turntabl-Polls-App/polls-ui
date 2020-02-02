@@ -19,7 +19,6 @@ import { Observable } from 'rxjs'
     email: new FormControl('')
     });
 
-   // user = { email: 'isaac.agyen@turntabl.io'}
     userObservable: Observable<User>
 
     pollid 
@@ -61,7 +60,7 @@ import { Observable } from 'rxjs'
     });
 
     this.sendmailService.sendmail(this.poll).subscribe()
-    this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
+    // this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
 
   }
 
