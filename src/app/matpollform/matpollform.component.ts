@@ -54,14 +54,12 @@ import { Observable } from 'rxjs'
   }
 
   send() {
-    this.appservice.addNewPoll(this.poll)
-    .subscribe(response => {
-        console.log(response);
-    });
+    this.appservice.addNewPoll(this.poll).subscribe();
+    // .subscribe(response => {
+    //     console.log(response);
+    // });
 
     this.sendmailService.sendmail(this.poll).subscribe()
-    // this.sendmailService.sendmail(this.creatorsForm.value).subscribe()
-
   }
 
   saveActive(): boolean {
