@@ -22,6 +22,10 @@ app.post('/sendmail', function(req, res) {
 	mail(user);
 });
 
+app.get('/options', function(res, req){
+	res.json({url: process.env.OPTION_BACKEND_URL})
+})
+
 app.listen(process.env.PORT || 8080, () => {
 	console.log('Server started...');
 });

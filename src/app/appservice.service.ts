@@ -8,7 +8,10 @@ import { Poll, Options } from './model/poll';
 })
 export class AppserviceService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { this.http.get(window.location.origin + '/options').subscribe(response =>{
+    console.log('response oooooooooo' + response)
+  })
+  }
 
   private _url: string = "https://options-web.herokuapp.com/api/v1/addNewPoll2";
   private  _option_url: string = "https://options-web.herokuapp.com/api/v1/options";
