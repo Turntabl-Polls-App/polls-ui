@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {Observable } from 'rxjs';
 import { Poll, Options } from './model/poll';
-import 'rxjs/add/operator/map';
 
 @Injectable({
   providedIn: 'root'
