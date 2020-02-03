@@ -22,7 +22,7 @@ app.get('/*', function(req, res) {
 });
 
 app.get('/options', (req, res) => {
-	res.json({poll_url: poll})
+	res.json({poll_url: options})
   });
 
 app.post('/sendmail', function(req, res) {
