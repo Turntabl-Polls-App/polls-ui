@@ -3,7 +3,11 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const mail = require('./mailgun')
+const mail = require('./mailgun');
+const cookieSession = require("cookie-session");
+const cookieParser = require("cookie-parser");
+const poll = process.env.POLL_BACKEND_URL;
+const options = process.env.OPTION_BACKEND_URL;
 
 const app = express();
 
@@ -16,6 +20,10 @@ app.options('*', cors());
 app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/dist/poll-ui/index.html'));
 });
+
+app.get('/options', (req, res) => {
+	res.json({poll_url: poll})
+  });
 
 app.post('/sendmail', function(req, res) {
 	const user = req.body;

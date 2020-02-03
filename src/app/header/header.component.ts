@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/matpollform']);
   }
 
-
   manage() {
     this.router.navigate(['/manage']);
   }
@@ -24,6 +23,4 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit() {
   }
-
-
 }

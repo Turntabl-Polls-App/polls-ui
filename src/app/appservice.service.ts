@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {Observable } from 'rxjs';
 import { Poll, Options } from './model/poll';
+import 'rxjs/add/operator/map';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppserviceService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {this.http.get(window.location.origin + '/options').subscribe(response => {
+    console.log('response oooooooooooooooooooo' +response)
+  }) }
 
   private _url: string = "https://options-web.herokuapp.com/api/v1/addNewPoll2";
   private  _option_url: string = "https://options-web.herokuapp.com/api/v1/options";
