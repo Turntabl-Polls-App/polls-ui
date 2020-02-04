@@ -12,7 +12,6 @@ export class SendmailService {
 			sessionStorage.setItem('mail_url', res.mail_url)
 		  })
 }
-	//private mailurl = 'https://polls-angular-ui.herokuapp.com/sendmail'
 
 	sendmail(user: object): Observable<User> {
 		return this.http.post<User>(sessionStorage.getItem('mail_url'), user);

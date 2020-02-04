@@ -7,7 +7,7 @@ import {ThankyoupageComponent} from './thankyoupage/thankyoupage.component'
 
 const routes: Routes = [
 	{path: 'matpollform', component: MatpollformComponent},
-	{ path: '',   component: ModelComponent},
+	{ path: '', component: ModelComponent},
 	{path: '', redirectTo: '/',pathMatch: 'full'},
 	{path: 'response', component: ResponseComponent},
 	{path: 'thankyoupage', component: ThankyoupageComponent}
