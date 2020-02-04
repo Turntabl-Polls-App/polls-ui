@@ -38,10 +38,6 @@ import { Observable } from 'rxjs'
   }
 
   ngOnInit() {
-    
-    console.log('====================================');
-    console.log(location.origin);
-    console.log('====================================');
   }
 
   addOption(): void {

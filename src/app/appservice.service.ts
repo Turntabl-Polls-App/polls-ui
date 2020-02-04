@@ -16,9 +16,6 @@ export class AppserviceService {
     })
   }
 
-  // private _url: string = "https://options-web.herokuapp.com/api/v1/addNewPoll2";
-  // private  _option_url: string = "https://options-web.herokuapp.com/api/v1/options";  
-  
   getPolls(): Observable<Poll[]>{ return this.http.get<Poll[]>(sessionStorage.getItem('polls_url')); }
 
   getPollById(id: string): Observable<Poll>{
