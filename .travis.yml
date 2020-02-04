@@ -5,9 +5,6 @@ language: node_js
 node_js:
   - '10'
 
-before_install:
-  - export CHROME_BIN=chromium-browser
-
 cache:
   directories:
     - ./node_modules
@@ -15,23 +12,3 @@ cache:
 install:
   - npm install
 
-script:
-<<<<<<< HEAD
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-
-
-
-# language: node_js
-# sudo: false
-# node_js:
-#   - 10
-# before_install:
-#   - export CHROME_BIN=chromium-browser
-# services:
-#   - xvfb
-# script:
-#   - npm install
-#   - npm test
-=======
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
->>>>>>> c603379a49dd8df07cbae69896b6a66eee8b9516

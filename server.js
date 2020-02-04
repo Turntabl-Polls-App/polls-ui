@@ -7,7 +7,7 @@ const mail = require('./mailgun');
 const poll = process.env.POLL_BACKEND_URL;
 const options = process.env.OPTION_BACKEND_URL;
 const sendmail_url = process.env.SENDMAIL_URL
-const RESPONSE_URL = process.env.RESPONSE_URL
+const response_url = process.env.RESPONSE_URL
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(cors());
 app.options('*', cors());
 
 app.get('/options_url', (req, res) => {
-	res.json({options_url: options, polls_url: poll, mail_url: sendmail_url, response_url: RESPONSE_URL})
+	res.json({options_url: options, polls_url: poll, mail_url: sendmail_url, response_url: response_url})
   });
 
 app.post('/sendmail', function(req, res) {
