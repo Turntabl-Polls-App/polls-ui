@@ -14,6 +14,7 @@ export class AppserviceService {
       sessionStorage.setItem('options_url', res.options_url)
       sessionStorage.setItem('polls_url', res.polls_url)
     })
+
   }
 
   // private _url: string = "https://options-web.herokuapp.com/api/v1/addNewPoll2";
