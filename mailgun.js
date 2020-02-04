@@ -16,8 +16,6 @@ async function start(toEmail) {
 nodemailerMailgun.sendMail({
   from: toEmail.creator_email,
   to: toEmail.recipient_email, 
-//   cc:'second@domain.com',
-//   bcc:'secretagent@company.gov',
   subject: 'Turntabl Poll',
   'h:Reply-To': 'isaac.agyen@turntabl.io',
   html: `<!doctype html>
@@ -139,7 +137,6 @@ nodemailerMailgun.sendMail({
                 </tr>
                 </tbody>
               </table>
-
               </td>
             </tr>
             </table>
