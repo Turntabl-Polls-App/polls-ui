@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ResponseService {
-
-  constructor(private http: HttpClient) { }
-  private responseLink = 'https://options-web.herokuapp.com/api/v1/responses';
+  constructor(private http: HttpClient) {this.http.get<any>(window.location.origin+'/options_url').subscribe(res=> {
+    sessionStorage.setItem('response_url', res.response_url)
+    }) 
+  }
 
   recordResponse(result): Observable<Response>{
-    return this.http.post<Response>(this.responseLink, result);
+    return this.http.post<Response>( sessionStorage.getItem('response_url'), result);
   }
 }

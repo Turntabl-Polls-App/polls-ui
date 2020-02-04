@@ -2,7 +2,6 @@
   <input matInput placeholder="Question of the poll" [(ngModel)]="poll.question">
 </mat-form-field>
 
-
 <mat-card class="option-card" *ngFor="let option of poll.options; let i = index">
   <mat-form-field class="full-width">
     <input matInput placeholder="Option {{ i + 1 }}" [(ngModel)]="option.content" (keyup.enter)="addOption()">

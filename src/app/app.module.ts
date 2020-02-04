@@ -13,7 +13,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ModelComponent } from './model/model.component';
 import { ResponseComponent } from './response/response.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
 
 
@@ -25,7 +24,6 @@ import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
     HeaderComponent,
     ModelComponent,
     ResponseComponent,
-    SpinnerComponent,
     ThankyoupageComponent
   ],
   imports: [
