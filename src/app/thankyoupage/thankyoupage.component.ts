@@ -24,12 +24,8 @@ export class ThankyoupageComponent implements OnInit {
         subscribe(params => {
           this.responses.option_id = params.option_id
           this.responses.poll_id = params.poll_id
-
-          this.responseService.recordResponse(this.responses).subscribe(response => {
-            console.log(response);
+          this.responseService.recordResponse(this.responses).subscribe();
           })
-
-        })
     }, 1000);
   }
 }
