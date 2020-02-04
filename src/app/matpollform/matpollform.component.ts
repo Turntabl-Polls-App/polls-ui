@@ -37,7 +37,12 @@ import { Observable } from 'rxjs'
     };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+    console.log('====================================');
+    console.log(location.origin);
+    console.log('====================================');
+  }
 
   addOption(): void {
     this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})}
