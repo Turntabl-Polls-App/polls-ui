@@ -5,7 +5,6 @@ export interface Poll {
     creator_email: string,
     recipient_email:string,
     selectMultiple: boolean,
-
 }
 
 export interface Options {

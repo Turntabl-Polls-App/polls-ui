@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 import {Poll, Options } from  '../model/poll';
 import { AppserviceService } from '../appservice.service';
@@ -37,8 +37,8 @@ import { Observable } from 'rxjs'
     };
   }
 
-
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   addOption(): void {
     this.poll.options.push({ option_id: UUID.UUID(), content: name, poll_id: this.pollid})}
@@ -55,10 +55,6 @@ import { Observable } from 'rxjs'
 
   send() {
     this.appservice.addNewPoll(this.poll).subscribe();
-    // .subscribe(response => {
-    //     console.log(response);
-    // });
-
     this.sendmailService.sendmail(this.poll).subscribe()
   }
 
