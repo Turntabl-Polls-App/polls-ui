@@ -8,35 +8,33 @@ import { User } from "../model/poll";
 import { Observable } from "rxjs";
 
 @Component({
-  selector: "app-matpollform",
-  templateUrl: "./matpollform.component.html",
-  styleUrls: ["./matpollform.component.scss"]
+  selector: 'app-create-poll',
+  templateUrl: './create-poll.component.html',
+  styleUrls: ['./create-poll.component.scss']
 })
-export class MatpollformComponent implements OnInit {
+export class CreatePollComponent implements OnInit {
+  
   creatorsForm = new FormGroup({
-    email: new FormControl("")
-  });
+  email: new FormControl("")
+});
 
-  userObservable: Observable<User>;
+userObservable: Observable<User>;
 
-  pollid;
-  poll: Poll;
+pollid;
+poll: Poll;
 
-  constructor(
-    private appservice: AppserviceService,
-    private sendmailService: SendmailService
-  ) {
-    this.pollid = UUID.UUID();
+constructor( private appservice: AppserviceService,private sendmailService: SendmailService) {
+  this.pollid = UUID.UUID();
 
-    this.poll = {
-      recipient_email: "",
-      poll_id: this.pollid,
-      question: "",
-      options: [],
-      creator_email: "",
-      selectMultiple: false
-    };
-  }
+  this.poll = {
+    recipient_email: "",
+    poll_id: this.pollid,
+    question: "",
+    options: [],
+    creator_email: "",
+    selectMultiple: false
+  };
+}
 
   ngOnInit() {}
 

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms'
 import {MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatButtonModule, MatInputModule, MatMenuModule, MatToolbarModule, MatSnackBarModule, MatDividerModule} from '@angular/material';
-import { MatpollformComponent } from './matpollform/matpollform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
@@ -14,17 +13,18 @@ import { HeaderComponent } from './header/header.component';
 import { ModelComponent } from './model/model.component';
 import { ResponseComponent } from './response/response.component';
 import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
+import { CreatePollComponent } from './create-poll/create-poll.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MatpollformComponent,
     FooterComponent,
     HeaderComponent,
     ModelComponent,
     ResponseComponent,
-    ThankyoupageComponent
+    ThankyoupageComponent,
+    CreatePollComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +43,7 @@ import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component';
     MatMenuModule,
     MatDividerModule,
     BrowserAnimationsModule, 
-    FormsModule
-    
+    FormsModule  
   ],
   exports: [HeaderComponent, FooterComponent],
   providers: [],
