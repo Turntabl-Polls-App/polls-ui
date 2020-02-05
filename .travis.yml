@@ -11,4 +11,3 @@ cache:
 
 install:
   - npm install
-
