@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResponseService } from '../response/response.service';
 import { Location } from '@angular/common';
+import { Thankyou } from './thankyou'
 
 @Component({
   selector: 'app-thankyoupage',
@@ -13,7 +14,7 @@ export class ThankyoupageComponent implements OnInit {
   constructor(private responseService: ResponseService, private activatedRoute: ActivatedRoute,
     private location: Location) { }
     
-    responses = {
+    responses: Thankyou = {
     option_id: '',
     poll_id: ''
   };
