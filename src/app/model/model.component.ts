@@ -15,6 +15,6 @@ export class ModelComponent implements OnInit {
   }
 
   createPoll() {
-    this.router.navigate(['/matpollform']);
+    this.router.navigate(['/create-poll']);
   }
 }
