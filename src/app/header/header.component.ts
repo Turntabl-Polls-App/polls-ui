@@ -10,11 +10,7 @@ export class HeaderComponent implements OnInit {
   constructor( private router: Router) { }
 
   addPoll() {
-    this.router.navigate(['/matpollform']);
-  }
-
-  manage() {
-    this.router.navigate(['/manage']);
+    this.router.navigate(['/create-poll']);
   }
 
   goToRoot() {
