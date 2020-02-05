@@ -6,7 +6,7 @@ import { ThankyoupageComponent } from './thankyoupage/thankyoupage.component'
 import { CreatePollComponent } from './create-poll/create-poll.component';
 
 const routes: Routes = [
-	{ path: 'crate-poll', component: CreatePollComponent },
+	{ path: 'create-poll', component: CreatePollComponent },
 	{ path: '', component: ModelComponent},
 	{ path: '', redirectTo: '/',pathMatch: 'full' },
 	{ path: 'response', component: ResponseComponent },
