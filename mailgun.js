@@ -160,13 +160,6 @@ nodemailerMailgun.sendMail({
     </table>
     </body>
   </html>`,
-}, (err, info) => {
-  if (err) {
-    console.log(`Error: ${err}`);
-  }
-  else {
-    console.log(`Response: ${info}`);
-  }
 });
 }
 
