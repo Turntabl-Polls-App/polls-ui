@@ -13,6 +13,10 @@ const app = express();
 
 app.use(express.static(__dirname + '/dist/poll-ui'));
 
+app.get('/options', function(res, req){
+	res.json({url: process.env.OPTION_BACKEND_URL})
+})
+
 app.use(bodyParser.json());
 app.use(cors());
 app.options('*', cors());

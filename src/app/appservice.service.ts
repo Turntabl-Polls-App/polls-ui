@@ -14,6 +14,7 @@ export class AppserviceService {
       sessionStorage.setItem('options_url', res.options_url)
       sessionStorage.setItem('polls_url', res.polls_url)
     })
+
   }
 
   getPolls(): Observable<Poll[]>{ return this.http.get<Poll[]>(sessionStorage.getItem('polls_url')); }
